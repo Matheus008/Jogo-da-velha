@@ -1,7 +1,6 @@
 * {
     margin: 0px;
     border: 0px;
-    
 }
 
 body {
@@ -87,22 +86,31 @@ body {
     height: 100%;
 }
 
+.tabuleiroTurnoEConfig {
+    display: grid;
+    grid-template-columns: auto auto auto auto
+}
+
 .corpoDoTabuleiro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    grid-column: 2 / 4;
 }
 
 .titulo {
-    margin: 10px;
+    width: 100%;
+    display: flex;
+    margin: 25px;
+    justify-content: center;
 }
 
 .board {
-    width: 75vh;
-    height: 75vh;
+
     display: grid;
     grid-template-columns: auto auto auto;
+    
 }
 
 .celula {
@@ -130,6 +138,25 @@ body {
     pointer-events: none;
 }
 
+.turnoEConfig {
+    /*display: grid;
+    grid-template-rows: auto auto auto;*/
+    width: 300px;
+}
+
 .turnoJogador {
-    margin-top: 20px;
+    margin: 10px;
+    display: flex;
+    font-size: 1.5em;
+
+}
+
+.turnoJogador p {
+    margin-left: 10px;
+}
+
+.chat {
+    margin: 10px;
+    display: flex;
+    font-size: 1.5em;
 }

@@ -4,75 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explosão de Partículas</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: red;
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .container {
-            position: relative;
-            width: 100px;
-            height: 100px;
-        }
-
-        .particle {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #fff;
-            border-radius: 50%;
-            animation: explode 1s ease-out forwards;
-        }
-
-        .particle:nth-child(1) {
-            animation-delay: 0s;
-        }
-
-        .particle:nth-child(2) {
-            animation-delay: 0.1s;
-        }
-
-        .particle:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-
-        .particle:nth-child(4) {
-            animation-delay: 0.3s;
-        }
-
-        .particle:nth-child(5) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes explode {
-            to {
-                transform: translate(calc(100px * (0.5 - rand())), calc(100px * (0.5 - rand())));
-                opacity: 0;
-            }
-        }
-
-        /* Function to generate random value */
-        @function rand() {
-            @return random(10) / 10 - 0.5;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/styleIndex.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+    <header>
+<h1>Hello World</h1>
+    </header>
+
+    <main>
+        
+    </main>
 </body>
 
 </html>

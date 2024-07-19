@@ -1,7 +1,6 @@
 const cells = document.querySelectorAll('[data-celula]');
 const board = document.getElementById('board');
 const turnoJogador = document.getElementById('turnoJogador');
-const button = document.getElementById('reiniciar');
 const player1XouO = document.getElementById('player1');
 const player2XouO = document.getElementById('player2');
 const placarPlayer1 = document.getElementById('placarPlayer1');
@@ -12,6 +11,8 @@ let turno;
 let PLAYER_X_ou_O;
 let PLAYER_1 = 0;
 let PLAYER_2 = 0;
+let NOME_PLAYER_1 = "Player 1";
+let NOME_PLAYER_2 = "Player 2";
 
 const COMBINACAO_GANHAR = [
     [0, 1, 2],
@@ -27,8 +28,6 @@ const COMBINACAO_GANHAR = [
 ]
 
 iniciaJogo();
-
-button.addEventListener('click', iniciaJogo);
 
 function iniciaJogo() {
     turno = false;
@@ -71,8 +70,10 @@ function manipularClick(e) {
         }else {
             ++PLAYER_2;
         }
+    
     } else if (verificaEmpate()) {
         //fimDeJogo(true);
+        iniciaJogo()
     } else {
         trocarTurno();
         marcarNoTabuleiro();
@@ -93,7 +94,9 @@ function combinacaoVencedora(jogadorAtual) {
     eventoDelay(cells[combinacaoGanhadora[0]], 1000);
     eventoDelay(cells[combinacaoGanhadora[1]], 2000);
     eventoDelay(cells[combinacaoGanhadora[2]], 3000);
-
+    setTimeout(() => {
+        iniciaJogo();
+    }, 8000);
 }
 
 function verificaVencedor(jogadorAtual) {
@@ -117,11 +120,25 @@ function marcarNoTabuleiro() {
     board.classList.remove(X_PLAYER);
     if (turno) {
         board.classList.add(O_PLAYER);
-        turnoJogador.textContent = O_PLAYER
+        turnoJogador.textContent = turnoDoJogador();
     } else {
         board.classList.add(X_PLAYER);
-        turnoJogador.textContent = X_PLAYER
+        turnoJogador.textContent = turnoDoJogador();
     }
+}
+
+function turnoDoJogador() {
+    let jogadorDaVez;
+    if(PLAYER_X_ou_O && !turno) {
+        jogadorDaVez = NOME_PLAYER_1;
+    }else if(!PLAYER_X_ou_O && !turno) {
+        jogadorDaVez = NOME_PLAYER_2;
+    }else if(!PLAYER_X_ou_O && turno) {
+        jogadorDaVez = NOME_PLAYER_1;
+    }else {
+        jogadorDaVez = NOME_PLAYER_2;
+    }
+    return jogadorDaVez;
 }
 
 function verificaEmpate() {
